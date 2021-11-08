@@ -1,29 +1,27 @@
 N, M = map(int, input().split())
-
 arr = []
-arrMin = []
-arrMinX = []
-maxY = 0
 
 for y in range(N):
-    line = (list(map(int, input().split())))
-    arr.append(line)
-    minX = 100000000
+    arr.append(list(map(int, input().split())))
+
+maxY = posX = posY = tmpX = 0
+
+for y in range(N):
+    minX = 1000000000
     for x in range(M):
-        if line[x] < minX:
-            minX = line[x]
-            posX = x
-    arrMin.append(minX)
-    arrMinX.append(posX)
-    
-for y in range(N):
-    if arrMin[y] > maxY:
-        maxY = arrMin[y]
-        spX = arrMinX[y]
-        spY = y
+        if arr[y][x] < minX:
+            minX = arr[y][x]
+            tmpX = x
+    if minX > maxY:
+        maxY = minX
+        posY = y
+        posX = tmpX
 
-if maxY == 0:
-    print(0)
-else:
-    print(maxY)
-    print(spX, spY)
+for y in range(N):
+    if maxY < arr[y][posX]:
+        maxY = 0
+        break
+
+print(maxY)
+if maxY > 0:
+    print(posY, posX)
