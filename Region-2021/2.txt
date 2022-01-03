@@ -1,0 +1,6 @@
+t = int(input())
+n, m = list(map(int, input().split()))
+
+
+
+print(0)
