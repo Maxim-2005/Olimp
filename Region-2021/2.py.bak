@@ -39,6 +39,6 @@ for i in range(t):
         row = h + 1
 
     if minV < minH:
-        print("V", v)
+        print("V", col + 1)
     else:
-        print("H", h)
+        print("H", row + 1)
