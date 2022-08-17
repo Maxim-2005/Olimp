@@ -1,11 +1,12 @@
-T = int(input())
-
-for i in range(T):
+for i in range(int(input())):
 	n, A = map(int, input().split())
-	arr = [1] * n
-	res = int(''.join(map(str, arr))) * A
-	
-	summ = 0
-	for j in str(res):
-		summ += int(j)
-	print(summ)
+	s = 0
+	if len(str(A)) >= n - 1:
+		s = sum(map(int, str(int('1' * n) * A)))
+	else:
+		s = sum(map(int, str(int('1' * len(str(A))) * A)))
+		t = int('1' * (len(str(A)) + 2)) * A
+		v = int(str(t)[len(str(t)) // 2])
+		l = n - len(str(A))
+		s += v * l
+	print(s)
